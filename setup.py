@@ -6,10 +6,14 @@ def create_console_script(*names):
         rst.append(f'{name} = util.{name}:main')
     return rst
 
+def _create_jebran_command(name):
+    return '{} = util.jet_brains:main'.format(name)
+
 def _get_scripts():
     rst = create_console_script("gitup", "gettopactivity", "ip", "acode", "cmake_ex", "ccode", "unmerged_rm", "lg")
     rst.append('jump = util.jump_and_unjump:jump')
     rst.append('unjump = util.jump_and_unjump:unjump')
+    rst.append(_create_jebran_command('pcode'))
     return rst
 
 setup(
