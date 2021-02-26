@@ -8,7 +8,7 @@ class App():
     """
     Represent an application
     """
-    def __init__(self, win_path, mac_path = ''):
+    def __init__(self, win_path = '', mac_path = ''):
         super().__init__()
         self.win_path = win_path
         self.mac_path = mac_path
@@ -25,6 +25,8 @@ class App():
             raise Exception("Why path not exist: " + full_dir_path)
 
         if sys.is_win():
+            if not self.win_path:
+                exit('exe file not find')
             if not os.path.exists(self.win_path):
                 raise Exception("Why exe not exist: " + self.win_path)
             # Popen is not good because it will still controled by the proces open the win_path
