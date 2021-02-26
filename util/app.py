@@ -4,8 +4,11 @@ import os
 import subprocess
 from sys import platform
 
-class JetBrainsApp():
-    def __init__(self, win_path, mac_path):
+class App():
+    """
+    Represent an application
+    """
+    def __init__(self, win_path, mac_path = ''):
         super().__init__()
         self.win_path = win_path
         self.mac_path = mac_path
@@ -29,6 +32,8 @@ class JetBrainsApp():
             DETACHED_PROCESS = 8
             subprocess.Popen([self.win_path, full_dir_path], cwd=full_dir_path, creationflags=DETACHED_PROCESS, close_fds=True)
         elif sys.is_mac():
+            if not self.mac_path:
+                exit('mac application path not specified')
             subprocess.Popen(['open', '-a', self.mac_path, dir_name], cwd=full_dir_path)
         else:
             raise Exception(f"Not work on {platform}")

@@ -3,10 +3,14 @@ import os
 from pythonex import *
 import subprocess
 from .env_home_win import JET_BRAINS_HOME
+from .app import App
 
 def _get_fodler_part_name(order: str):
     if order == "pcode":
         return "pycharm"
+    elif order == 'ccode':
+        return 'clion'
+
     else:
         exit('unknow command {}'.format(order))
 
@@ -34,17 +38,7 @@ def main():
         raise('can\'t find bin_file')
 
     bin_path = os.path.join(bin_folder, bin_file)
-    if len(sys.argv) >= 2:
-        dir_name = sys.argv[1]
-    else:
-        dir_name = "."
-    full_dir_path = os.path.abspath(dir_name) 
-    if sys.is_win():
-        DETACHED_PROCESS = 8
-        subprocess.Popen([bin_path, full_dir_path], cwd=full_dir_path, creationflags=DETACHED_PROCESS, close_fds=True)
-    else:
-        raise('only support in windows')
-
+    App(bin_path).start()
 
 
 if __name__ == "__name__":
