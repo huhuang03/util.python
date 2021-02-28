@@ -1,0 +1,7 @@
+* The utils
+
+** like vscode's code
+
+| ccode | open project in clion |
+| acode | in android studio     |
+| pcode | in pycharm            |
