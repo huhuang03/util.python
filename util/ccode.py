@@ -1,6 +1,6 @@
 from sys import platform
 import os
-from . import App
+from .app import App
 from .env_home_win import CLION_HOME
 
 def main():
