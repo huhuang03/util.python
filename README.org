@@ -11,3 +11,9 @@ pip install -e .
 | ccode | open project in clion |
 | acode | in android studio     |
 | pcode | in pycharm            |
+
+** other
+| ip             | get output ip                           |
+| gettopactivity | get android device topest activity name |
+| cmake_ex       | remove the cmake cache files            |
+| gitup          | quick commit local changes              |
