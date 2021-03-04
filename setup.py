@@ -15,6 +15,7 @@ def _get_scripts():
     rst.append('unjump = util.jump_and_unjump:unjump')
     rst.append(_create_jebran_command('pcode'))
     rst.append(_create_jebran_command('ccode'))
+    rst.append(_create_jebran_command('icode'))
     return rst
 
 setup(

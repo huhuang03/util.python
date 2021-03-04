@@ -2,7 +2,7 @@ import sys
 from pythonex import *
 import os
 import subprocess
-from sys import platform
+from sys import call_tracing, platform
 
 class App():
     """
@@ -32,7 +32,11 @@ class App():
             # Popen is not good because it will still controled by the proces open the win_path
             # how to start the bat??
             DETACHED_PROCESS = 8
-            subprocess.Popen([self.win_path, full_dir_path], cwd=full_dir_path, creationflags=DETACHED_PROCESS, close_fds=True)
+            try:
+                subprocess.Popen([self.win_path, full_dir_path], cwd=full_dir_path, creationflags=DETACHED_PROCESS, close_fds=True)
+            except Exception as e:
+                print(f"win_path: {self.win_path}")
+                raise e
         elif sys.is_mac():
             if not self.mac_path:
                 exit('mac application path not specified')

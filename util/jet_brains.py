@@ -4,13 +4,21 @@ from pythonex import *
 from .env_home_win import JET_BRAINS_HOME
 from .app import App
 
-def _get_app_shortname(order: str):
-    if order == "pcode":
-        return "pycharm"
-    elif order == 'ccode':
-        return 'clion'
-    else:
-        exit('unkonw short name for {}'.format(order))
+class AppInfo:
+    def __init__(self, order, folder, exe = "") -> None:
+        self.order = order
+        self.folder = folder
+        self.exe = exe
+        if not self.exe:
+            self.exe = folder
+
+all_app = [AppInfo("pcode", "pycharm"), AppInfo("ccode", "clion"), AppInfo("icode", "intelli", "idea64")]
+
+def _get_app_info(order: str) -> AppInfo:
+    for app in all_app:
+        if app.order == order:
+            return app
+    exit('unkonw short name for {}'.format(order))
 
 
 def _get_folder(part_name: str) -> str:
@@ -19,13 +27,13 @@ def _get_folder(part_name: str) -> str:
             return fo
     exit('can\'t find folder for order: {}'.format(part_name))
 
-def get_exe_in_win(part_name: str) -> str:
-    app_folder = _get_folder(part_name)
+def get_exe_in_win(info: AppInfo) -> str:
+    app_folder = _get_folder(info.folder)
     bin_folder = os.path.join(JET_BRAINS_HOME, app_folder, 'bin')
 
     bin_file = ""
     for fo in os.listdir(bin_folder):
-        if fo.endswith('.exe') and part_name in fo:
+        if fo.endswith('.exe') and info.exe in fo:
             bin_file = fo
     bin_path = os.path.join(bin_folder, bin_file)
     return bin_path
@@ -40,11 +48,11 @@ def get_exe_in_mac(order_name: str) -> str:
 
 def main():
     last_name = os.path.basename(sys.argv[0])
-    app_short_name = _get_app_shortname(last_name)
+    app_info = _get_app_info(last_name)
     if sys.is_win():
-        App(win_path=get_exe_in_win(app_short_name)).start()
+        App(win_path=get_exe_in_win(app_info)).start()
     elif sys.is_mac():
-        App(mac_path=get_exe_in_mac(app_short_name)).start()
+        App(mac_path=get_exe_in_mac(app_info.folder)).start()
     else:
         exit('unknow platform')
     
