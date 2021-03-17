@@ -52,7 +52,10 @@ def main():
     if sys.is_win():
         App(win_path=get_exe_in_win(app_info)).start()
     elif sys.is_mac():
-        App(mac_path=get_exe_in_mac(app_info.folder)).start()
+        app_path = get_exe_in_mac(app_info.folder)
+        if not app_path:
+            exit("Can't find app!! Did you installed it??")
+        App(mac_path=app_path).start()
     else:
         exit('unknow platform')
     
