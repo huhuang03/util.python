@@ -16,6 +16,7 @@ def _get_scripts():
     rst.append(_create_jebran_command('pcode'))
     rst.append(_create_jebran_command('ccode'))
     rst.append(_create_jebran_command('icode'))
+    rst.append(_create_jebran_command('hcode'))
     return rst
 
 setup(

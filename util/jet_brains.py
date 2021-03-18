@@ -12,7 +12,10 @@ class AppInfo:
         if not self.exe:
             self.exe = folder
 
-all_app = [AppInfo("pcode", "pycharm"), AppInfo("ccode", "clion"), AppInfo("icode", "intelli", "idea64")]
+all_app = [AppInfo("pcode", "pycharm"), \
+        AppInfo("ccode", "clion"), \
+        AppInfo("icode", "intelli", "idea64"), \
+        AppInfo("hcode", "php", "php")]
 
 def _get_app_info(order: str) -> AppInfo:
     for app in all_app:
