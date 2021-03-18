@@ -10,7 +10,8 @@ def _create_jebran_command(name):
     return '{} = util.jet_brains:main'.format(name)
 
 def _get_scripts():
-    rst = create_console_script("gitup", "gettopactivity", "ip", "acode", "cmake_ex", "unmerged_rm", "lg", 'utf8_2_utf8bom')
+    rst = create_console_script("gitup", "gettopactivity", "ip", "acode", "cmake_ex", "unmerged_rm",\
+         "lg", 'utf8_2_utf8bom', "save_space")
     rst.append('jump = util.jump_and_unjump:jump')
     rst.append('unjump = util.jump_and_unjump:unjump')
     rst.append(_create_jebran_command('pcode'))
