@@ -1,18 +1,32 @@
-* The utils
+The utils
 
 ** Install
 #+BEGIN_SRC shell
 pip install -e .
 #+END_SRC
 
-** like vscode's code
+** Utils
+
+*** like vscode's code
 
 | ccode | open project in clion |
 | acode | in android studio     |
 | pcode | in pycharm            |
 
-** other
+*** gitup
+It's a util to quick commit to server.
+
+It do this following thing
+
+When you execute ~gitup~. It will prompt a commit message.
+
+#+BEGIN_SRC shell
+git add .
+git commit -a -m "Your input commit message"
+git push
+#+END_SRC
+
+*** others
 | ip             | get output ip                           |
 | gettopactivity | get android device topest activity name |
 | cmake_ex       | remove the cmake cache files            |
-| gitup          | quick commit local changes              |
