@@ -1,6 +1,6 @@
 import sys
 import os
-from pythonex import *
+from .util import *
 from .env_home_win import JET_BRAINS_HOME
 from .app import App
 
@@ -52,9 +52,9 @@ def get_exe_in_mac(order_name: str) -> str:
 def main():
     last_name = os.path.basename(sys.argv[0])
     app_info = _get_app_info(last_name)
-    if sys.is_win():
+    if is_windows():
         App(win_path=get_exe_in_win(app_info)).start()
-    elif sys.is_mac():
+    elif is_mac():
         app_path = get_exe_in_mac(app_info.folder)
         if not app_path:
             exit("Can't find app!! Did you installed it??")

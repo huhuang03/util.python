@@ -1,5 +1,5 @@
 import sys
-from pythonex import *
+from .util import *
 import os
 import subprocess
 from sys import call_tracing, platform
@@ -24,7 +24,7 @@ class App():
         if not os.path.exists(full_dir_path):
             raise Exception("Why path not exist: " + full_dir_path)
 
-        if sys.is_win():
+        if is_windows():
             if not self.win_path:
                 exit('exe file not find')
             if not os.path.exists(self.win_path):
@@ -37,7 +37,7 @@ class App():
             except Exception as e:
                 print(f"win_path: {self.win_path}")
                 raise e
-        elif sys.is_mac():
+        elif is_mac():
             if not self.mac_path:
                 exit('mac application path not specified')
             subprocess.Popen(['open', '-a', self.mac_path, dir_name], cwd=full_dir_path)
