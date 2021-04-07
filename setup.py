@@ -12,8 +12,6 @@ def _create_jebran_command(name):
 def _get_scripts():
     rst = create_console_script("gitup", "gettopactivity", "ip", "acode", "cmake_ex", "unmerged_rm",\
          "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex')
-    rst.append('jump = util.jump_and_unjump:jump')
-    rst.append('unjump = util.jump_and_unjump:unjump')
     rst.append(_create_jebran_command('pcode'))
     rst.append(_create_jebran_command('ccode'))
     rst.append(_create_jebran_command('icode'))
