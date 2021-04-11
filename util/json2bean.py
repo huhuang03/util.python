@@ -1,10 +1,25 @@
 import argparse
 import json
 
-def parser_java(name, bean):
-    rst = "class {} {".format(name)
+def parser_json_object(name, json_obj):
+    pass
+
+def parser_json_array():
+    pass
+
+def parser_java(name, json_str):
+    try:
+        bean = json.loads("".join(json_str))
+    except:
+        exit("illegal json:\n {}".format(json_str))
+
+    bean = json.loads(json_str)
+    rst = "class " + name + " {\n"
     for k, v in bean.items():
-        rst += "\tpublic String {}".format(k)
+        if isinstance(v, list):
+            rst += "\tpublic List<String> {} = new ArrayList<>();\n".format(k)
+        else:
+            rst += "\tpublic String {} = \"\";\n".format(k)
     rst += "}"
     return rst
 
@@ -29,13 +44,7 @@ def main():
             break
 
     json_content = "".join(json_content)
-    print(json_content)
-    try:
-        bean = json.loads("".join(json_content))
-    except:
-        exit("illegal json:\n {}}".format(json_content))
-
-    rst = parser_java(name, bean)
+    rst = parser_java(name, json_content)
     print(rst)
     
 
