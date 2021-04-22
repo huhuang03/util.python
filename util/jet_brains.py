@@ -15,6 +15,7 @@ class AppInfo:
 all_app = [AppInfo("pcode", "pycharm"), \
         AppInfo("ccode", "clion"), \
         AppInfo("icode", "intelli", "idea64"), \
+        AppInfo("wcode", "webstorm"), \
         AppInfo("hcode", "php", "php")]
 
 def _get_app_info(order: str) -> AppInfo:
