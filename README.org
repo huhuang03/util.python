@@ -30,3 +30,4 @@ git push
 | ip             | get output ip                           |
 | gettopactivity | get android device topest activity name |
 | cmake_ex       | remove the cmake cache files            |
+| jt_ex          | crach the jetbran active code           |

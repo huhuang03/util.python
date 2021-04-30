@@ -10,8 +10,9 @@ def _create_jebran_command(name):
     return '{} = util.jet_brains:main'.format(name)
 
 def _get_scripts():
+    # why I need creat this by hand??
     rst = create_console_script("gitup", "gettopactivity", "ip", "acode", "cmake_ex", "unmerged_rm",\
-         "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean')
+         "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_ex')
     rst.append(_create_jebran_command('pcode'))
     rst.append(_create_jebran_command('ccode'))
     rst.append(_create_jebran_command('icode'))
