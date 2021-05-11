@@ -24,9 +24,9 @@ def _create_by_cli():
     '''
     pwd = os.getcwd()
     cli_path = os.path.join(pwd, 'util/cli/')
-    print(cli_path)
-    for f in os.listdir(cli_path):
-        print(f)
+    if os.path.exists(cli_path):
+        for f in os.listdir(cli_path):
+            print(f)
 
 
 COMMANDS = ["gitup", "gettopactivity", "ip", "idea.idea_android", "cmake_ex", "unmerged_rm",
