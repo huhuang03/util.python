@@ -28,5 +28,5 @@ def find_program(program_part_name) -> [str]:
     rst = []
     for i in range(ord('A'), ord('Z')):
         rst += _find(str(chr(i)), program_part_name)
-    print(rst)
+    # print(rst)
     return rst

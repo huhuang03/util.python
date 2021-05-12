@@ -2,6 +2,7 @@ import os
 from .idea_base import IdeaBase
 from ..util.util_find_program import find_program
 from ..app import App
+from ..util.util import is_mac, is_windows
 
 
 JET_BRAIN_FOLDER_NAME = "JetBrains"
@@ -23,6 +24,8 @@ class IDeaJetBran(IdeaBase):
         exit('can\'t find folder for order: {}'.format(self.folder_name))
 
     def get_exe_in_win(self) -> str:
+        if is_mac():
+            return ""
         app_folder = self._get_folder()
         bin_folder = os.path.join(app_folder, 'bin')
 
@@ -34,6 +37,8 @@ class IDeaJetBran(IdeaBase):
         return bin_path
 
     def get_exe_in_mac(self) -> str:
+        if is_windows():
+            return ""
         folder = "/Applications"
         for f in os.listdir(folder):
             if self.exe_name in f.lower() and f.endswith(".app"):
