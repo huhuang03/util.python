@@ -1,22 +1,25 @@
 import sys
-import os
-from .util import *
-from .env_home_win import JET_BRAINS_HOME
+
 from .app import App
+from .env_home_win import JET_BRAINS_HOME
+from .util import *
+
 
 class AppInfo:
-    def __init__(self, order, folder, exe = "") -> None:
+    def __init__(self, order, folder, exe="") -> None:
         self.order = order
         self.folder = folder
         self.exe = exe
         if not self.exe:
             self.exe = folder
 
-all_app = [AppInfo("pcode", "pycharm"), \
-        AppInfo("ccode", "clion"), \
-        AppInfo("icode", "intelli", "idea64"), \
-        AppInfo("wcode", "webstorm"), \
-        AppInfo("hcode", "php", "php")]
+
+all_app = [AppInfo("pcode", "pycharm"),
+           AppInfo("ccode", "clion"),
+           AppInfo("icode", "intelli", "idea64"),
+           AppInfo("wcode", "webstorm"),
+           AppInfo("hcode", "php", "php")]
+
 
 def _get_app_info(order: str) -> AppInfo:
     for app in all_app:
@@ -31,6 +34,7 @@ def _get_folder(part_name: str) -> str:
             return fo
     exit('can\'t find folder for order: {}'.format(part_name))
 
+
 def get_exe_in_win(info: AppInfo) -> str:
     app_folder = _get_folder(info.folder)
     bin_folder = os.path.join(JET_BRAINS_HOME, app_folder, 'bin')
@@ -41,6 +45,7 @@ def get_exe_in_win(info: AppInfo) -> str:
             bin_file = fo
     bin_path = os.path.join(bin_folder, bin_file)
     return bin_path
+
 
 def get_exe_in_mac(order_name: str) -> str:
     folder = "/Applications"
@@ -62,7 +67,7 @@ def main():
         App(mac_path=app_path).start()
     else:
         exit('unknow platform')
-    
+
 
 if __name__ == "__name__":
     main()
