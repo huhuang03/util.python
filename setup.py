@@ -38,7 +38,7 @@ def _get_scripts():
     _create_by_cli()
     rst.append(_create_command('acode', 'idea.idea_android'))
     rst.append(_create_command('scode', 'idea.scode'))
-    rst.append(_create_jebrain_command('pcode'))
+    rst.append(_create_command('pcode', 'idea.idea_pycharm'))
     rst.append(_create_jebrain_command('ccode'))
     rst.append(_create_jebrain_command('icode'))
     rst.append(_create_jebrain_command('hcode'))

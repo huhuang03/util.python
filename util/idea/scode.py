@@ -5,6 +5,7 @@ import sys
 from .idea_android import IdeaAndroid
 from .idea_code import IdeaCode
 from .idea_base import IdeaBase
+from .idea_pycharm import IdeaPycharm
 
 
 def main():
@@ -18,12 +19,17 @@ def main():
     idea: IdeaBase = IdeaCode()
     if _judge_is_android(root):
         idea = IdeaAndroid()
+    elif _judge_is_python(root):
+        idea = IdeaPycharm()
     idea.run(root)
 
 
 def _judge_is_android(root) -> bool:
-    return True
-    pass
+    return False
+
+
+def _judge_is_python(root: str) -> bool:
+    return "setup.py" in os.listdir(root)
 
 
 if __name__ == '__main__':

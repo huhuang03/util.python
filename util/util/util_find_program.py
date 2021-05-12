@@ -19,6 +19,7 @@ def _find(disk_name, to_find):
     rst += _find_in_folder(path, to_find)
     path = os.path.join(f"{disk_name}:", 'Program Files (x86)')
     rst += _find_in_folder(path, to_find)
+    return rst
 
 
 def find_program(program_part_name) -> [str]:
@@ -27,4 +28,5 @@ def find_program(program_part_name) -> [str]:
     rst = []
     for i in range(ord('A'), ord('Z')):
         rst += _find(str(chr(i)), program_part_name)
+    print(rst)
     return rst

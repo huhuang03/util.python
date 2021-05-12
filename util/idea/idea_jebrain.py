@@ -1,5 +1,7 @@
+import os
 from .idea_base import IdeaBase
 from ..util.util_find_program import find_program
+from ..app import App
 
 
 JET_BRAIN_FOLDER_NAME = "JetBrains"
@@ -13,36 +15,30 @@ class IDeaJetBran(IdeaBase):
             self.exe_name = self.folder_name
         self.jet_brain_folders = find_program(JET_BRAIN_FOLDER_NAME)
 
-    def _get_folder(part_name: str) -> str:
-        for fo in os.listdir(JET_BRAINS_HOME):
-            if part_name in fo.lower():
-                return fo
-        exit('can\'t find folder for order: {}'.format(part_name))
+    def _get_folder(self) -> str:
+        for jet_brain_folder in self.jet_brain_folders:
+            for fo in os.listdir(jet_brain_folder):
+                if self.folder_name in fo.lower():
+                    return os.path.join(jet_brain_folder, fo)
+        exit('can\'t find folder for order: {}'.format(self.folder_name))
 
-    def _get_folder_exe(part_name: str) -> str:
-        pass
-        # for fo in os.listdir(JET_BRAINS_HOME):
-        #     if part_name in fo.lower():
-        #         return fo
-        # exit('can\'t find folder for order: {}'.format(part_name))
-
-    def get_exe_in_win(info: AppInfo) -> str:
-        app_folder = _get_folder(info.folder)
-        bin_folder = os.path.join(JET_BRAINS_HOME, app_folder, 'bin')
+    def get_exe_in_win(self) -> str:
+        app_folder = self._get_folder()
+        bin_folder = os.path.join(app_folder, 'bin')
 
         bin_file = ""
         for fo in os.listdir(bin_folder):
-            if fo.endswith('.exe') and info.exe in fo:
+            if fo.endswith('.exe') and self.exe_name in fo:
                 bin_file = fo
         bin_path = os.path.join(bin_folder, bin_file)
         return bin_path
 
-    def get_exe_in_mac(order_name: str) -> str:
+    def get_exe_in_mac(self) -> str:
         folder = "/Applications"
         for f in os.listdir(folder):
-            if order_name in f.lower() and f.endswith(".app"):
+            if self.exe_name in f.lower() and f.endswith(".app"):
                 return os.path.join(folder, f)
         return ""
 
     def run(self, root):
-        App(os.path.join(ANDROID_HOME, "bin", "studio64.exe"), "/Applications/Android Studio.app").start()
+        App(self.get_exe_in_win(), self.get_exe_in_mac()).start_in_folder(root)
