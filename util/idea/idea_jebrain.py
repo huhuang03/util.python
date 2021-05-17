@@ -17,7 +17,9 @@ class IDeaJetBran(IdeaBase):
         self.jet_brain_folders = find_program(JET_BRAIN_FOLDER_NAME)
 
     def _get_folder(self) -> str:
+        # print("jet_brain_folders: " + ",".join(self.jet_brain_folders))
         for jet_brain_folder in self.jet_brain_folders:
+            # print("jet_brain_folder: " + jet_brain_folder)
             for fo in os.listdir(jet_brain_folder):
                 if self.folder_name in fo.lower():
                     return os.path.join(jet_brain_folder, fo)
