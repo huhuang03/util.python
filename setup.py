@@ -29,7 +29,7 @@ def _create_by_cli():
             print(f)
 
 
-COMMANDS = ["gitup", "gettopactivity", "ip", "idea.idea_android", "cmake_ex", "unmerged_rm",
+COMMANDS = ["gitup", "gettopactivity", "ip", "idea.idea_android", "cmake_ex", "merged_rm",
             "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code', 'idea.scode']
 
 def _get_scripts():
