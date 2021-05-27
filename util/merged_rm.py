@@ -6,6 +6,7 @@ def main():
     for name in output.split("\n"):
         name = name.strip()
         if name and 'dev' not in name and '*' not in name:
+            print(f'delete branch {name}')
             subprocess.check_output(['git', 'branch', '-d', name])
 
 
