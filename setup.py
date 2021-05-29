@@ -18,10 +18,10 @@ def _create_jebrain_command(name):
 
 
 def _create_by_cli():
-    '''
+    """
     Fuck I don't write for now.
     :return:
-    '''
+    """
     pwd = os.getcwd()
     cli_path = os.path.join(pwd, 'util/cli/')
     if os.path.exists(cli_path):
@@ -32,17 +32,18 @@ def _create_by_cli():
 COMMANDS = ["gitup", "gettopactivity", "ip", "idea.idea_android", "cmake_ex", "unmerged_rm",
             "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code', 'idea.scode']
 
+
 def _get_scripts():
-    # why I need creat this by hand??
+    # why I need create this by hand??
     rst = create_console_script(*COMMANDS)
     _create_by_cli()
     rst.append(_create_command('acode', 'idea.idea_android'))
     rst.append(_create_command('scode', 'idea.scode'))
     rst.append(_create_command('pcode', 'idea.idea_pycharm'))
     rst.append(_create_command('ccode', 'idea.idea_clion'))
-    rst.append(_create_jebrain_command('icode'))
-    rst.append(_create_jebrain_command('hcode'))
-    rst.append(_create_jebrain_command('wcode'))
+    rst.append(_create_command('icode', 'idea.idea_intellij'))
+    rst.append(_create_command('wcode', 'idea.idea_webstorm'))
+    rst.append(_create_command('hcode', 'idea.idea_phpstorm'))
     return rst
 
 
