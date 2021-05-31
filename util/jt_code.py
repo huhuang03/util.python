@@ -2,7 +2,7 @@ import requests
 import pyperclip
 import json
 
-# IntellJ IDEA ¼¤»îÂë Ã¿ÈÕ¸üĞÂ ³¤ÆÚÌá¹©¡¾JetBrainsÈ«¼ÒÍ°¡¿¿ÉÓÃ - °×³ÌĞòÔ±µÄ×ÔÏ°ÊÒ
+# IntelliJ IDEA æ¿€æ´»ç  æ¯æ—¥æ›´æ–° é•¿æœŸæä¾›ã€JetBrainså…¨å®¶æ¡¶ã€‘å¯ç”¨ - ç™½ç¨‹åºå‘˜çš„è‡ªä¹ å®¤
 # https://www.studytime.xin/article/code.html
 
 URL = "https://api.studytime.xin/activationCode"
