@@ -29,8 +29,8 @@ def _create_by_cli():
             print(f)
 
 
-COMMANDS = ["gitup", "gettopactivity", "ip", "idea.idea_android", "cmake_ex", "merged_rm",
-            "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code', 'idea.scode']
+COMMANDS = ["gitup", "gettopactivity", "ip", "cmake_ex", "merged_rm", "an_util",
+            "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code']
 
 def _get_scripts():
     # why I need creat this by hand??
