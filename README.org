@@ -1,19 +1,19 @@
 The utils
 
-** Install
+* Install
 #+BEGIN_SRC shell
 pip install -e .
 #+END_SRC
 
-** Utils
+* Utils
 
-*** like vscode's code
+** like vscode's code
 
 | ccode | open project in clion |
 | acode | in android studio     |
 | pcode | in pycharm            |
 
-*** gitup
+** gitup
 It's a util to quick commit to server.
 
 It do this following thing
@@ -26,7 +26,27 @@ git commit -a -m "Your input commit message"
 git push
 #+END_SRC
 
-*** others
+** remote
+It's a util to save your remote server setting, and setup remote server login auto login
+
+*** Add remote
+#+BEGIN_SRC shell
+remote add a-remember-name-for-login-later
+# Then It will prompt input name@host and password
+# And It will copy .ssh/id_rsa.pub to auto login
+#+END_SRC
+
+** List remote
+#+BEGIN_SRC shell
+remote list
+#+END_SRC
+
+** Login remote
+#+BEGIN_SRC shell
+remote a-remember-name-for-login-later
+#+END_SRC
+
+** others
 | ip             | get output ip                           |
 | gettopactivity | get android device topest activity name |
 | cmake_ex       | remove the cmake cache files            |

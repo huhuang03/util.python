@@ -30,7 +30,7 @@ def _create_by_cli():
 
 
 COMMANDS = ["gitup", "gettopactivity", "ip", "cmake_ex", "merged_rm", "an_util",
-            "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code']
+            "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code', 'remote']
 
 
 def _get_scripts():
