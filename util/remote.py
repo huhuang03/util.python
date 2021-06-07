@@ -1,5 +1,6 @@
 import argparse
 import os
+import subprocess
 
 
 def login():
@@ -29,7 +30,8 @@ def add(args):
     # ok, now let's read the rmote known_keys
     username_host = input("please input username@host: ")
     print(f"ssh {username_host} 'cat .ssh/authorized_keys'")
-    os.system(f"ssh {username_host} 'cat .ssh/authorized_keys'")
+    subprocess.call(f'ssh {username_host} "cat .ssh/authorized_keys"', shell=True)
+    # os.system(f"ssh {username_host} 'cat .ssh/authorized_keys'", =True)
 
     # os.system('')
     # # how to judge already exit?
