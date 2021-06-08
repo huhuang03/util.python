@@ -21,8 +21,7 @@ RESERVE_NAME = []
 
 PATH_AUTHORIZED_KEYS = ".ssh/authorized_keys"
 
-PATH_SERVER_LIST = "./.server_list.txt"
-
+PATH_SERVER_LIST = os.path.join(os.path.dirname(__file__), "../.server_list.txt")
 
 def load_list() -> [dict]:
     if not os.path.exists(PATH_SERVER_LIST):
