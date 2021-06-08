@@ -2,3 +2,5 @@
 __pycache__/
 .idea/
 .vscode/
+server_list.txt
+.server_list.txt
