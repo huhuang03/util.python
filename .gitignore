@@ -4,3 +4,4 @@ __pycache__/
 .vscode/
 server_list.txt
 .server_list.txt
+local.ini
