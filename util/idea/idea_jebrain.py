@@ -8,7 +8,7 @@ from ..util.util import is_mac, is_windows
 JET_BRAIN_FOLDER_NAME = "JetBrains"
 
 
-class IDeaJetBran(IdeaBase):
+class IDeaJetBrains(IdeaBase):
     def __init__(self, folder_name, exe_name=''):
         self.folder_name = folder_name
         self.exe_name = exe_name
