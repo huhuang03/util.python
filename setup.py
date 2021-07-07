@@ -13,7 +13,7 @@ def _create_command(name, file_path):
     return f'{name} = util.{file_path}:main'
 
 
-def _create_jebrain_command(name):
+def _create_jetbrains_command(name):
     return '{} = util.jet_brains:main'.format(name)
 
 

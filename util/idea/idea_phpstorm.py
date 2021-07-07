@@ -1,7 +1,7 @@
-from .idea_jebrain import IDeaJetBran
+from .idea_jebrain import IDeaJetBrains
 
 
-class IdeaPhpstorm(IDeaJetBran):
+class IdeaPhpstorm(IDeaJetBrains):
     def __init__(self):
         super().__init__("php")
 

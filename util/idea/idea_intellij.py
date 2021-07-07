@@ -1,7 +1,7 @@
-from .idea_jebrain import IDeaJetBran
+from .idea_jebrain import IDeaJetBrains
 
 
-class IdeaIntellij(IDeaJetBran):
+class IdeaIntellij(IDeaJetBrains):
     def __init__(self):
         super().__init__("intellij", "idea64")
 

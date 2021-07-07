@@ -8,13 +8,12 @@ from ..util.util import is_mac, is_windows
 JET_BRAIN_FOLDER_NAME = "JetBrains"
 
 
-class IDeaJetBran(IdeaBase):
+class IDeaJetBrains(IdeaBase):
     def __init__(self, folder_name, exe_name=''):
         self.folder_name = folder_name
-        self.exe_name = exe_name
-        if not self.exe_name:
-            self.exe_name = self.folder_name
-        self.jet_brain_folders = find_program(JET_BRAIN_FOLDER_NAME)
+        self.exe_name = exe_name or self.folder_name
+        if is_windows():
+            self.jet_brain_folders = find_program(JET_BRAIN_FOLDER_NAME)
 
     def _get_folder(self) -> str:
         for jet_brain_folder in self.jet_brain_folders:
