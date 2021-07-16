@@ -3,6 +3,7 @@ import os
 import time
 
 from .get_apk import get_apk
+from .wifi import wifi
 
 
 def _command_push_cert(sub_parser):
@@ -40,13 +41,18 @@ def main():
     parse_get_apk = subparser.add_parser("get_apk", help="get apk by package name")
     parse_get_apk.add_argument("pkg_name", type=str, help="print apk sign info")
 
+    subparser.add_parser("wifi", help="connect adb var wifi")
+
     args = parser.parse_args()
+    # do you want a map??
     if args.command == "screenshot":
         screenshot()
     elif args.command == "get_sign":
         get_sign(args)
     elif args.command == "get_apk":
         get_apk(args)
+    elif args.command == "wifi":
+        wifi()
 
 
 if __name__ == "__main__":
