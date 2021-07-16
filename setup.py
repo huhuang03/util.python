@@ -29,7 +29,7 @@ def _create_by_cli():
             print(f)
 
 
-COMMANDS = ["gitup", "gettopactivity", "ip", "cmake_ex", "merged_rm", "an_util",
+COMMANDS = ["gitup", "gettopactivity", "ip", "cmake_ex", "merged_rm",
             "lg", 'utf8_2_utf8bom', "save_space", 'find_program', 'rn_ex', 'json2bean', 'jt_code', 'remote']
 
 
@@ -37,6 +37,7 @@ def _get_scripts():
     # why I need create this by hand??
     rst = create_console_script(*COMMANDS)
     _create_by_cli()
+    rst.append(_create_command("an_util", "an_util"))
     rst.append(_create_command('acode', 'idea.idea_android'))
     rst.append(_create_command('scode', 'idea.scode'))
     rst.append(_create_command('pcode', 'idea.idea_pycharm'))

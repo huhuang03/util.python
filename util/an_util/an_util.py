@@ -1,8 +1,8 @@
-import subprocess
-import time
-import os
-
 import argparse
+import os
+import time
+
+from .get_apk import get_apk
 
 
 def _command_push_cert(sub_parser):
@@ -37,11 +37,16 @@ def main():
     parser_get_sign = subparser.add_parser("get_sign", help="get sign info from apk file")
     parser_get_sign.add_argument("apk_file", type=str, help="print apk sign info")
 
+    parse_get_apk = subparser.add_parser("get_apk", help="get apk by package name")
+    parse_get_apk.add_argument("pkg_name", type=str, help="print apk sign info")
+
     args = parser.parse_args()
     if args.command == "screenshot":
         screenshot()
     elif args.command == "get_sign":
         get_sign(args)
+    elif args.command == "get_apk":
+        get_apk(args)
 
 
 if __name__ == "__main__":
