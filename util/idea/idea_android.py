@@ -14,7 +14,8 @@ def _get_android_home():
         folder = config['DEFAULT']['AS_HOME']
     else:
         for i in range(ord('A'), ord('Z')):
-            check_folder = os.path.join(str(chr(i)), "Program Files", "Android", "Android Studio")
+            driver_name = str(chr(i)) + ":"
+            check_folder = os.path.join(driver_name, "Program Files", "Android", "Android Studio")
             if os.path.exists(check_folder):
                 folder = check_folder
                 break
